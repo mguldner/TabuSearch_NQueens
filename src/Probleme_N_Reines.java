@@ -104,9 +104,30 @@ public class Probleme_N_Reines {
 	
 	public static String solutionToString(int[] solution){
 		String result = "Solution : \n";
+		int[][] sol = new int[solution.length][solution.length];
 		for(int i=0; i<solution.length; i++){
-			result+="Colonne " + i + " : " + solution[i] + "\n";
+			for(int j=0; j<solution.length; j++){
+				sol[i][j]=0;
+			}
 		}
+		for(int i=0; i<solution.length; i++){
+			sol[solution[i]][i] = 1;
+		}
+		for(int i=0; i<solution.length; i++){
+			result+="|";
+			for(int j=0; j<solution.length; j++){
+				if(sol[i][j] == 1){
+					result+="x|";
+				}
+				else{
+					result+=" |";
+				}
+			}
+			result += "\n";
+		}
+		/*for(int i=0; i<solution.length; i++){
+			result+="Colonne " + i + " : " + solution[i] + "\n";
+		}*/
 		return result;
 	}
 
